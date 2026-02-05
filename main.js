@@ -34,20 +34,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 
   // 卡片点击：跳微信公众号
-  const card = document.querySelector('.wechatOA-card');
+  const card = document.getElementById('card-link');
   if (card) {
     card.style.cursor = 'pointer';
     card.addEventListener('click', function() {
       const isWechat = /MicroMessenger/i.test(navigator.userAgent);
       if (isWechat) {
-        // 微信内：直接打开公众号网页
         window.location.href = officialAccountWebUrl;
       } else {
-        // 外部：唤起微信
-        window.location.href = wechatScheme;
-        // 超时提示（防止唤起失败）
+        window.location.href = officialAccountWebUrl;
         setTimeout(() => {
-          alert('请在微信中打开，或直接打开微信搜索公众号：' + oa_name);
+          alert('已复制公众号名称，请打开微信粘贴搜索关注：' + oa_name);
         }, 1200);
       }
     });
