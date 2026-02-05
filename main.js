@@ -39,16 +39,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', function() {
       const isWechat = /MicroMessenger/i.test(navigator.userAgent);
+
       if (isWechat) {
         window.location.href = officialAccountWebUrl;
       } else {
+        let copied = false;
+        try {
+          navigator.clipboard.writeText(oa_name);
+          copied = true;
+        } catch (err) {
+          copied = false;
+        }
         window.location.href = officialAccountWebUrl;
         setTimeout(() => {
-          navigator.clipboard.writeText(oa_name).then(() => {
+          if (copied) {
             alert('已复制公众号：' + oa_name + '，请打开微信粘贴搜索');
-          }).catch(() => {
+          } else {
             alert('如遇跳转失败请手动打开微信搜索公众号：' + oa_name);
-          });
+          }
         }, 1200);
       }
     });
