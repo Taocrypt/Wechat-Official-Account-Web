@@ -14,25 +14,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // 检测是否有replyText参数
   if (replyText) {
-      // 如果有参数，则更新wechat-need-reply-text的内容
-      document.getElementById('wechat-need-reply').style.display = 'flex';
-      document.getElementById('wechat-need-reply-text').textContent = replyText;
+    document.getElementById('wechat-need-reply').style.display = 'flex';
+    document.getElementById('wechat-need-reply-text').textContent = replyText;
   } else {
-      // 如果没有参数，则隐藏wechat-need-reply部分
-      document.getElementById('wechat-need-reply').style.display = 'none';
+    document.getElementById('wechat-need-reply').style.display = 'none';
   }
   
   document.getElementById('wechat-need-reply-copybtn').addEventListener('click', function() {
-      var textToCopy = document.getElementById('wechat-need-reply-text').innerText;
-      navigator.clipboard.writeText(textToCopy).then(function() {
-          console.log('Text copied to clipboard');
-          // Change the text and color of wechat-need-reply-back
-          var replyBackElement = document.getElementById('wechat-need-reply-back');
-          replyBackElement.innerText = '复制成功';
-          replyBackElement.style.color = 'green';
-      })
-      .catch(function(err) {
-          console.error('Could not copy text: ', err);
-      });
+    var textToCopy = document.getElementById('wechat-need-reply-text').innerText;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+      console.log('Text copied to clipboard');
+      var replyBackElement = document.getElementById('wechat-need-reply-back');
+      replyBackElement.innerText = '复制成功';
+      replyBackElement.style.color = 'green';
+    })
+    .catch(function(err) {
+      console.error('Could not copy text: ', err);
+    });
   });
+
+  // 卡片点击：跳微信公众号
+  const card = document.querySelector('.wechatOA-card');
+  if (card) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() {
+      const isWechat = /MicroMessenger/i.test(navigator.userAgent);
+      if (isWechat) {
+        // 微信内：直接打开公众号网页
+        window.location.href = officialAccountWebUrl;
+      } else {
+        // 外部：唤起微信
+        window.location.href = wechatScheme;
+        // 超时提示（防止唤起失败）
+        setTimeout(() => {
+          alert('请在微信中打开，或直接打开微信搜索公众号：' + oa_name);
+        }, 1200);
+      }
+    });
+  }
 });
