@@ -44,7 +44,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
       } else {
         window.location.href = officialAccountWebUrl;
         setTimeout(() => {
-          alert('已复制公众号名称，请打开微信粘贴搜索关注：' + oa_name);
+          navigator.clipboard.writeText(oa_name).then(() => {
+            alert('已复制公众号：' + oa_name + '，请打开微信粘贴搜索');
+          }).catch(() => {
+            alert('如遇跳转失败请手动打开微信搜索公众号：' + oa_name);
+          });
         }, 1200);
       }
     });
