@@ -16,11 +16,11 @@
 可以在url中携带参数。例如
 
 ```
-https://wechat.taocrypt.us.kg/wechatOA/?replyText=欢迎关注
+https://wechat.taocrypt.us.kg/?replyText=欢迎关注
 ```
 
 ### replyText
 
 用于显示关注公众号时应该回复的内容参数
 
-[预览效果](https://wechat.taocrypt.us.kg/?replyText=%E5%BE%AE%E4%BF%A1VI)
+[预览效果](https://wechat.taocrypt.us.kg/?replyText=Test)
