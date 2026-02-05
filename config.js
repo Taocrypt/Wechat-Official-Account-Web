@@ -1,6 +1,6 @@
-const oa_name = "张洪Heo";
-const oa_description = "分享设计与科技生活";
-const web_beian = "京ICP备19051325号-2";
+const oa_name = "Taocrypt";
+const oa_description = "雲在青天水在瓶";
+const homepage = "Taocryptの个人主页";
 
 function replaceText(elementId, newText) {
   var element = document.getElementById(elementId);
@@ -13,4 +13,4 @@ function replaceText(elementId, newText) {
 
 replaceText('wechatOA-name', oa_name);
 replaceText('wechatOA-description', oa_description)
-replaceText('web-beian', web_beian)
+replaceText('homepage', web_beian)

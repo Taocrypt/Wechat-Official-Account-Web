@@ -2,7 +2,7 @@
 
  微信公众号的关注界面
  
-[预览效果](https://wechat.zhheo.com/)
+[预览效果](https://wechat.taocrypt.us.kg/)
 
 ## 入门
 
@@ -16,11 +16,11 @@
 可以在url中携带参数。例如
 
 ```
-https://blog.zhheo.com/wechatOA/?replyText=欢迎关注
+https://https://wechat.taocrypt.us.kg/wechatOA/?replyText=欢迎关注
 ```
 
 ### replyText
 
 用于显示关注公众号时应该回复的内容参数
 
-[预览效果](https://wechat.zhheo.com/?replyText=%E5%BE%AE%E4%BF%A1VI)
+[预览效果](https://wechat.taocrypt.us.kg/?replyText=%E5%BE%AE%E4%BF%A1VI)
