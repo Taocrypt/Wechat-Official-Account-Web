@@ -16,7 +16,7 @@
 可以在url中携带参数。例如
 
 ```
-https://https://wechat.taocrypt.us.kg/wechatOA/?replyText=欢迎关注
+https://wechat.taocrypt.us.kg/wechatOA/?replyText=欢迎关注
 ```
 
 ### replyText
